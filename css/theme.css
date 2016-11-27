@@ -1,0 +1,184 @@
+.description, .reviews, .form {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.description-portrait {
+    width: 30%;
+    float: left;
+    top: 20px;
+    position: absolute;
+}
+.portrait_circle {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 200px;
+    min-width: 100px;
+}
+.description-name, .rating {
+    width: 62%;
+    margin-left: 38%;
+}
+.description-name h2{
+    font-weight: 600;
+}
+.description-name p{
+    font-weight: 100;
+    color:#cfcfcf;
+}
+.description-status {
+    width: 95%;
+    background-color: #fffbc8;
+    border: solid 1px #666;
+    border-radius: 5px;
+    padding-left: 32%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    margin-left: 5%;
+}
+.rating-item_numder {
+    float: left;
+    width: 25%;
+    padding-left: 5px;
+    padding-right: 10px;
+    font-weight: 600;
+    text-align: right;
+}
+.rating-name {
+    margin-left: 75%;
+    width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: right;
+}
+.rating-item_text {
+    float: left;
+    width: 75%;
+}
+.rating-total, .reviews-header_last {
+    font-weight: 600;
+}
+.rating-table {
+    margin:0 !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.reviews-header_like p:before{
+    content: url("../img/like.png");
+    padding-right: 5px;
+}
+.reviews-header_recall p:before{
+    content: url("../img/recall.png");
+    padding-right: 5px;
+}
+.reviews-header_item {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.reviews-header_all, .reviews-header_last{
+    float: left;
+}
+.reviews-header_like, .reviews-header_recall{
+    float:right;
+}
+hr {
+    margin:0 !important;
+}
+.rating-name p{
+    margin:0
+}
+.rating-item_11 .progress-bar {
+    background-color: #b1e19b;
+    color:#000;
+    float: none;
+    text-align: left;
+    padding-left: 6px;
+    line-height: 25px;
+}
+.rating-item_3 .progress-bar,.rating-item_1 .progress-bar  {
+    background-color: #ace2f8;
+    color:#000;
+    float: none;
+    text-align: left;
+    padding-left: 6px;
+    line-height: 23px;
+}
+.rating-item_progress {
+    height: 25px;
+    margin-bottom: 3px;
+    overflow: hidden;
+}
+.progress-bar span{
+    z-index: 1;
+    float: left;
+    width: 150px;
+}
+.reviews-header {
+    margin-top: 50px;
+    padding-left: 10px;
+}
+li {
+    list-style-type: none; /* Убираем маркеры */
+}
+.form {
+    background-color: #f2f2f2;
+    padding-top:30px;
+    padding-bottom: 30px;
+}
+.form-textarea {
+    width: 100%;
+    height: 70px;
+}
+.form-button {
+    background-color: #fdd639;
+    border-radius: 25px !important;
+    max-width: 400px;
+    width: 250px;
+    min-width: 150px;
+    height: 40px;
+    margin:5px auto
+}
+.form-input {
+    max-width: 400px;
+    width: 250px;
+    min-width: 150px;
+    margin:5px auto
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+    font-weight: 600;
+}
+ol{
+    padding-left: 0;
+}
+.reviews-massege_comment{
+    background-color: #f2fbff;
+    width: 100%;
+    padding: 10px 15px;
+    border: solid 1px #cfcfcf;
+    position: relative;
+    margin:20px 0px
+}
+.reviews-massege_comment::before, .reviews-massege_comment::after {
+     content: '';
+     position: absolute;
+     left: 20px;
+     top: -20px;
+     border: 10px solid transparent;
+     border-bottom: 10px solid #cfcfcf;
+ }
+.reviews-massege_comment::after {
+    border-bottom: 10px solid #f2fbff;
+    top: -19px;
+}
+.reviews-massege_name{
+    float: left;
+    margin-right: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.reviews-massege_data {
+    font-size: 11px;
+    padding-top: 3px;
+    color:#cfcfcf
+}
