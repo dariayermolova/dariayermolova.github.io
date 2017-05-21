@@ -79,11 +79,11 @@ window.onload = function () {
     //sun
     var sun, sun_geom, sun_mat;
     sun_geom = new THREE.SphereGeometry(69.5510, 20, 20);
-    //var sun_l =  new THREE.TextureLoader();
-    //var sun_text = sun_l.load('../img/sun.jpg');
-    //sun_text.anisotrope = 8;
-    //sun_mat = new THREE.MeshPhongMaterial({map: sun_text});
-    sun_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
+    var sun_l =  new THREE.TextureLoader();
+    var sun_text = sun_l.load('../img/sun.jpg');
+    sun_text.anisotrope = 8;
+    sun_mat = new THREE.MeshPhongMaterial({map: sun_text});
+    //sun_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
     sun = new THREE.Mesh(sun_geom, sun_mat);
     sun.position.x = -1190.0000;
     scene.add(sun);
@@ -97,11 +97,11 @@ window.onload = function () {
 
     var mercury, mercury_geom, mercury_mat;
     mercury_geom = new THREE.SphereGeometry(20.2439, 20, 20);
-    //var mercury_l =  new THREE.TextureLoader();
-    //var mercury_text = venus_l.load('../img/mercury.jpg');
-    //mercury_text.anisotrope = 8;
-    //mercury_mat = new THREE.MeshPhongMaterial({map: mercury_text});
-    mercury_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
+    var mercury_l =  new THREE.TextureLoader();
+    var mercury_text = venus_l.load('../img/mercury.jpg');
+    mercury_text.anisotrope = 8;
+    mercury_mat = new THREE.MeshPhongMaterial({map: mercury_text});
+    //mercury_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
     mercury = new THREE.Mesh(mercury_geom, mercury_mat);
     mercury.castShadow = true;
     scene.add(mercury);
