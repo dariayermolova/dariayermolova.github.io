@@ -98,7 +98,7 @@ window.onload = function () {
     var mercury, mercury_geom, mercury_mat;
     mercury_geom = new THREE.SphereGeometry(20.2439, 20, 20);
     var mercury_l =  new THREE.TextureLoader();
-    var mercury_text = venus_l.load('../img/mercury.jpg');
+    var mercury_text = mercury_l.load('../img/mercury.jpg');
     mercury_text.anisotrope = 8;
     mercury_mat = new THREE.MeshPhongMaterial({map: mercury_text});
     //mercury_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
