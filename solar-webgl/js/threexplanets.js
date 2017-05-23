@@ -8,7 +8,7 @@ THREEx.Planets.baseURL	= '../'
 
 THREEx.Planets.createSun	= function(){
 	var geometry	= new THREE.SphereGeometry(69, 32, 32)
-	var texture	= THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/sunmap.jpg')
+	var texture	= THREE.ImageUtils.loadTexture('../images/sunmap.jpg')
 	var material	= new THREE.MeshPhongMaterial({
 		map	: texture,
 		bumpMap	: texture,
@@ -21,8 +21,8 @@ THREEx.Planets.createSun	= function(){
 THREEx.Planets.createMercury	= function(){
 	var geometry	= new THREE.SphereGeometry(1.2439, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
-		map	: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/mercurymap.jpg'),
-		bumpMap	: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/mercurybump.jpg'),
+		map	: THREE.ImageUtils.loadTexture('../images/mercurymap.jpg'),
+		bumpMap	: THREE.ImageUtils.loadTexture('../images/mercurybump.jpg'),
 		bumpScale: 0.005,
 	})
 	var mesh	= new THREE.Mesh(geometry, material)
@@ -32,8 +32,8 @@ THREEx.Planets.createMercury	= function(){
 THREEx.Planets.createVenus	= function(){
 	var geometry	= new THREE.SphereGeometry(1.6051, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
-		map	: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/venusmap.jpg'),
-		bumpMap	: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/venusbump.jpg'),
+		map	: THREE.ImageUtils.loadTexture('../images/venusmap.jpg'),
+		bumpMap	: THREE.ImageUtils.loadTexture('../images/venusbump.jpg'),
 		bumpScale: 0.005,
 	})
 	var mesh	= new THREE.Mesh(geometry, material)
@@ -43,10 +43,10 @@ THREEx.Planets.createVenus	= function(){
 THREEx.Planets.createEarth	= function(){
 	var geometry	= new THREE.SphereGeometry(2.2712, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
-		map		: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/earthmap1k.jpg'),
-		bumpMap		: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/earthbump1k.jpg'),
+		map		: THREE.ImageUtils.loadTexture('../images/earthmap1k.jpg'),
+		bumpMap		: THREE.ImageUtils.loadTexture('../images/earthbump1k.jpg'),
 		bumpScale	: 0.05,
-		specularMap	: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/earthspec1k.jpg'),
+		specularMap	: THREE.ImageUtils.loadTexture('../images/earthspec1k.jpg'),
 		specular	: new THREE.Color('grey'),
 	})
 	var mesh	= new THREE.Mesh(geometry, material)
