@@ -51,26 +51,13 @@ function init() {
     controls.looSpeed = 1.6;
 
     var light = new THREE.PointLight( 0xffffff, 1.4, 30000 ); // soft white light
-    light.position.set(0,0,0);
+    light.position.set(-1190,0,0);
     light.castShadow = true;
     light.shadowMapWigth = 2048;
     light.shadowMapHeight = 2048;
     scene.add( light );
 
-    var sun_light_left = new THREE.PointLight( 0xffffff, 1.4, 10000 ); // soft white light
-    sun_light_left.position.set(-1500,500,0);
-    sun_light_left.castShadow = true;
-    scene.add(sun_light_left);
 
-    var sun_light_botton = new THREE.PointLight( 0xffffff, 1.4, 10000 ); // soft white light
-    sun_light_botton.position.set(-1500,-500,0);
-    sun_light_botton.castShadow = true;
-    scene.add(sun_light_botton);
-
-    var sun_light_z= new THREE.PointLight( 0xffffff, 1.4, 10000 ); // soft white light
-    sun_light_z.position.set(-1500,0,500);
-    sun_light_z.castShadow = true;
-    scene.add(sun_light_z);
 
 
     var ambient = new THREE.AmbientLight(0x222222);
@@ -95,19 +82,35 @@ function init() {
 
 
     //sun
-    var sun, sun_geom, sun_mat;
-    sun_geom = new THREE.SphereGeometry(69.5510, 20, 20);
-    var sun_l =  new THREE.TextureLoader();
-    var sun_text = sun_l.load('../img/sun.jpg');
-    sun_text.anisotrope = 8;
-    sun_mat = new THREE.MeshPhongMaterial({map: sun_text});
-    //sun_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe: true});
-    sun = new THREE.Mesh(sun_geom, sun_mat);
-    //sun = THREEx.Planets.createSun();
-    sun.position.x = -1190.0000;
-    sun.castShadow = false;
-    scene.add(sun);
 
+    var glowColor	= new THREE.Color('cyan')
+    var glowColor	= new THREE.Color('yellow')
+    var sun	= THREEx.Planets.createSun()
+    // mesh.visible	= false
+    sun.position.x = -1190;
+    scene.add(sun)
+
+    var geometry	= new THREE.SphereGeometry(69, 32, 32)
+    geometry	= sun.geometry.clone()
+    var material	= THREEx.createAtmosphereMaterial()
+    material.uniforms.glowColor.value	= glowColor
+    var Atmosphere	= new THREE.Mesh(geometry, material );
+    Atmosphere.scale.multiplyScalar(1.01);
+    Atmosphere.position.x = -1190;
+    scene.add( Atmosphere );
+
+
+    var geometry	= new THREE.SphereGeometry(69, 32, 32)
+    geometry	= sun.geometry.clone()
+    var material	= THREEx.createAtmosphereMaterial()
+    material.side	= THREE.BackSide
+    material.uniforms.coeficient.value	= 0.5
+    material.uniforms.power.value		= 4.0
+    material.uniforms.glowColor.value	= glowColor
+    var mesh	= new THREE.Mesh(geometry, material );
+    mesh.scale.multiplyScalar(1.5);
+    mesh.position.x = -1190;
+    scene.add( mesh );
 
     //mercury
     //var mercury = new Planet(10.48794/* ,'../img/mercury.jpg' */).init();
