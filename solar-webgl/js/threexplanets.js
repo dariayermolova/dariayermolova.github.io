@@ -19,7 +19,7 @@ THREEx.Planets.createSun	= function(){
 }
 
 THREEx.Planets.createMercury	= function(){
-	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
+	var geometry	= new THREE.SphereGeometry(1.2439, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map	: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/mercurymap.jpg'),
 		bumpMap	: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/mercurybump.jpg'),
@@ -30,7 +30,7 @@ THREEx.Planets.createMercury	= function(){
 }
 
 THREEx.Planets.createVenus	= function(){
-	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
+	var geometry	= new THREE.SphereGeometry(1.6051, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map	: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/venusmap.jpg'),
 		bumpMap	: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/venusbump.jpg'),
@@ -41,7 +41,7 @@ THREEx.Planets.createVenus	= function(){
 }
 
 THREEx.Planets.createEarth	= function(){
-	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
+	var geometry	= new THREE.SphereGeometry(2.2712, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map		: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/earthmap1k.jpg'),
 		bumpMap		: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/earthbump1k.jpg'),

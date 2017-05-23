@@ -1,4 +1,4 @@
 body { margin: 0px;     overflow: hidden;}
 canvas, #WebGL-output { z-index:0; }
-.btn {position: absolute; margin-top:20px; background: brown; z-index: 1000; font-size: 12px; color: white; border: 1px solid white;}
+.btn { margin-top:20px; margin-bottom:20px; background: brown; z-index: 1000; font-size: 12px; color: white; border: 1px solid white;}
 .btn1 {position: absolute; background: brown; z-index: 1000; font-size: 12px; color: white; border: 1px solid white;}

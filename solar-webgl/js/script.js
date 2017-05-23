@@ -22,22 +22,6 @@ function init() {
         };
     };
 
-    /*var Planet = function (rad) {
-     this.rad = rad;
-     //this.texture = texture;
-     this.init = function () {
-     var geom = new THREE.SphereGeometry(this.rad, 20, 20);
-     //var onload =  new THREE.TextureLoader();
-     //var text = onload.load(this.texture);
-     //text.anisotrope = 8;
-     //mat = new THREE.MeshPhongMaterial({map: text});
-     mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
-     mesh = new THREE.Mesh(geom, mat);
-     mesh.castShadow = true;
-     scene.add(mesh);
-     }
-     };
-     */
     var camera = new THREE.PerspectiveCamera(1, window.innerWidth / window.innerHeight, 1, 100000000);
     camera.position.z = 300000;
     var scene = new THREE.Scene();
@@ -82,7 +66,6 @@ function init() {
 
 
     //sun
-
     var glowColor	= new THREE.Color('cyan')
     var glowColor	= new THREE.Color('yellow')
     var sun	= THREEx.Planets.createSun()
@@ -99,7 +82,6 @@ function init() {
     Atmosphere.position.x = -1190;
     scene.add( Atmosphere );
 
-
     var geometry	= new THREE.SphereGeometry(69, 32, 32)
     geometry	= sun.geometry.clone()
     var material	= THREEx.createAtmosphereMaterial()
@@ -112,57 +94,36 @@ function init() {
     mesh.position.x = -1190;
     scene.add( mesh );
 
+
     //mercury
     //var mercury = new Planet(10.48794/* ,'../img/mercury.jpg' */).init();
     //scene.add(mercury);
     var mercury_info = false;
     var mercury_orbit = new Orbit(5790.908263, 5667.320223, -0.03);
     mercury_orbit.draw(scene);
-
-    var mercury, mercury_geom, mercury_mat;
-    mercury_geom = new THREE.SphereGeometry(20.2439, 20, 20);
-    var mercury_l =  new THREE.TextureLoader();
-    var mercury_text = mercury_l.load('../img/mercury.jpg');
-    mercury_text.anisotrope = 8;
-    mercury_mat = new THREE.MeshPhongMaterial({map: mercury_text});
-    //mercury_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe: true});
-    mercury = new THREE.Mesh(mercury_geom, mercury_mat);
+    mercury = THREEx.Planets.createMercury();
     mercury.castShadow = true;
     scene.add(mercury);
 
-    /*
-     //venus
-     var venus_orbit = new Orbit(10820.859888, 10820.611662);
-     venus_orbit.draw(scene);
 
-     var venus, venus_geom, venus_mat;
-     venus_geom = new THREE.SphereGeometry(0.6051, 20, 20);
-     //var venus_l =  new THREE.TextureLoader();
-     //var venus_text = venus_l.load('../img/venus.jpg');
-     //venus_text.anisotrope = 8;
-     //venus_mat = new THREE.MeshPhongMaterial({map: venus_text});
-     venus_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
-     venus = new THREE.Mesh(venus_geom, venus_mat);
+     //venus
+    var venus_info = false;
+     var venus_orbit = new Orbit(10820.859888, 10820.611662, 0);
+     venus_orbit.draw(scene);
+     venus = THREEx.Planets.createVenus();
      venus.castShadow = true;
      scene.add(venus);
 
 
 
      //earth
-     var earth_orbit = new Orbit(14959.8021093, 14957.7130861);
+    var earth_info = false;
+     var earth_orbit = new Orbit(14959.8021093, 14957.7130861, 0);
      earth_orbit.draw(scene);
-
-     var earth, earth_geom, earth_mat;
-     earth_geom = new THREE.SphereGeometry(1.2712, 20, 20);
-     //var earth_l =  new THREE.TextureLoader();
-     //var earth_text = earth_l.load('../img/earth.jpg');
-     //earth_text.anisotrope = 8;
-     //earth_mat = new THREE.MeshPhongMaterial({map: earth_text});
-     earth_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
-     earth = new THREE.Mesh(earth_geom, earth_mat);
+     earth = THREEx.Planets.createEarth();
      earth.castShadow = true;
      scene.add(earth);
-
+      /*
      //mars
      var mars_orbit = new Orbit(22793.9177843091, 22694.1796053);
      mars_orbit.draw(scene);
@@ -288,13 +249,13 @@ function init() {
 
             mercury.position.x = Math.sin(t * 0.1) * 5667.320223;
             mercury.position.z = Math.cos(t * 0.1) * 5667.320223;
-            /*
+
              venus.position.x = Math.sin(t*0.1)*10820.859888;
              venus.position.z = Math.cos(t*0.1)*10820.611662;
 
              earth.position.x = Math.sin(t*0.1)*14959.8021093;
              earth.position.z = Math.cos(t*0.1)*14957.7130861;
-
+              /*
              mars.position.x = Math.sin(t*0.1)*22793.9177843091;
              mars.position.z = Math.cos(t*0.1)*22694.1796053;
 
@@ -321,12 +282,44 @@ function init() {
         }
         else {
             if (mercury_info) {
-                if (camera.position.z > mercury.position.z - 1000) {
-                    camera.position.z -= 3000;
+                if (camera.position.z  > mercury.position.z + 3000) {
+                    camera.position.z -=4000;
+                    camera.lookAt(mercury.position);
+                }
+                if (camera.position.x  -1<  mercury.position.x ) {
+                    camera.position.x +=4000;
                     camera.lookAt(mercury.position);
                 }
                 else {
                     document.getElementById("1").style.display = "block";
+                }
+            }
+
+            if (venus_info) {
+                if (camera.position.z  > venus.position.z+3000 ) {
+                    camera.position.z -=4000;
+                    camera.lookAt(venus.position);
+                }
+                if (camera.position.x  -1<  venus.position.x ) {
+                    camera.position.x +=4000;
+                    camera.lookAt(venus.position);
+                }
+                else {
+                    document.getElementById("2").style.display = "block";
+                }
+            }
+
+            if (earth_info) {
+                if (camera.position.z  > earth.position.z+3000 ) {
+                    camera.position.z -=4000;
+                    camera.lookAt(earth.position);
+                }
+                if (camera.position.x  -1<  earth.position.x ) {
+                    camera.position.x +=4000;
+                    camera.lookAt(earth.position);
+                }
+                else {
+                    document.getElementById("3").style.display = "block";
                 }
             }
         }
@@ -340,7 +333,11 @@ function init() {
 this.showSolar = function showSolar() {
     info = false;
     mercury_info = false;
+    venus_info = false;
+    earth_info = false;
     document.getElementById("1").style.display = "none";
+    document.getElementById("2").style.display = "none";
+    document.getElementById("3").style.display = "none";
     camera.position.z = 300000;
     camera.lookAt(scene.position);
 
@@ -351,9 +348,13 @@ this.showInfo =  function showInfo(num) {
             case 1:
                 mercury_info = true;
                 info = true;
-
                 break;
             case 2:
+                venus_info = true;
+                info = true;
+                break;
+            case 3:
+                earth_info = true;
                 info = true;
                 break;
             default:
