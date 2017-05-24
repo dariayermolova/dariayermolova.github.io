@@ -19,7 +19,7 @@ THREEx.Planets.createSun	= function(){
 }
 
 THREEx.Planets.createMercury	= function(){
-	var geometry	= new THREE.SphereGeometry(1.2439, 32, 32)
+	var geometry	= new THREE.SphereGeometry(0.2439, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map	: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/mercurymap.jpg'),
 		bumpMap	: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/mercurybump.jpg'),
@@ -30,7 +30,7 @@ THREEx.Planets.createMercury	= function(){
 }
 
 THREEx.Planets.createVenus	= function(){
-	var geometry	= new THREE.SphereGeometry(1.6051, 32, 32)
+	var geometry	= new THREE.SphereGeometry(0.6051, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map	: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/venusmap.jpg'),
 		bumpMap	: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/venusbump.jpg'),
@@ -41,7 +41,7 @@ THREEx.Planets.createVenus	= function(){
 }
 
 THREEx.Planets.createEarth	= function(){
-	var geometry	= new THREE.SphereGeometry(2.2712, 32, 32)
+	var geometry	= new THREE.SphereGeometry(1.2712, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map		: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/earthmap1k.jpg'),
 		bumpMap		: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/earthbump1k.jpg'),
@@ -96,11 +96,11 @@ THREEx.Planets.createEarthCloud	= function(){
 			contextResult.putImageData(dataResult,0,0)	
 			material.map.needsUpdate = true;
 		})
-		imageTrans.src	= THREEx.Planets.baseURL+'images/earthcloudmaptrans.jpg';
+		imageTrans.src	= 'https://dariayermolova.github.io/solar-webgl/images/earthcloudmaptrans.jpg';
 	}, false);
-	imageMap.src	= THREEx.Planets.baseURL+'images/earthcloudmap.jpg';
+	imageMap.src	= 'https://dariayermolova.github.io/solar-webgl/images/earthcloudmap.jpg';
 
-	var geometry	= new THREE.SphereGeometry(0.51, 32, 32)
+	var geometry	= new THREE.SphereGeometry(1.29, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map		: new THREE.Texture(canvasResult),
 		side		: THREE.DoubleSide,

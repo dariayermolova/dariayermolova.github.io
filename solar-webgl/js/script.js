@@ -17,7 +17,7 @@ function init() {
                 og.vertices.push(v);
             }
             var obj = new THREE.ParticleSystem(og, om);
-            obj.rotation.z = this.rotZ;
+            obj.rotation.z = this.rotZ*Math.PI/180;
             scene.add(obj);
         };
     };
@@ -96,13 +96,12 @@ function init() {
 
 
     //mercury
-    //var mercury = new Planet(10.48794/* ,'../img/mercury.jpg' */).init();
-    //scene.add(mercury);
     var mercury_info = false;
-    var mercury_orbit = new Orbit(5790.908263, 5667.320223, -0.03);
+    var mercury_orbit = new Orbit(5790.908263, 5667.320223, -3.38);
     mercury_orbit.draw(scene);
-    mercury = THREEx.Planets.createMercury();
+    var mercury = THREEx.Planets.createMercury();
     mercury.castShadow = true;
+    mercury.rotation.x = 0.01*Math.PI/180;
     scene.add(mercury);
 
 
@@ -110,19 +109,31 @@ function init() {
     var venus_info = false;
      var venus_orbit = new Orbit(10820.859888, 10820.611662, 0);
      venus_orbit.draw(scene);
-     venus = THREEx.Planets.createVenus();
+    var venus = THREEx.Planets.createVenus();
      venus.castShadow = true;
+    venus.rotation.x = 177*Math.PI/180;
      scene.add(venus);
-
 
 
      //earth
     var earth_info = false;
      var earth_orbit = new Orbit(14959.8021093, 14957.7130861, 0);
      earth_orbit.draw(scene);
-     earth = THREEx.Planets.createEarth();
+    var earth = THREEx.Planets.createEarth();
      earth.castShadow = true;
+     earth.rotation.x = 23*Math.PI/180;
      scene.add(earth);
+    var earth_cloud = THREEx.Planets.createEarthCloud();
+    scene.add(earth_cloud);
+
+
+    //moon
+    var moon_orbit = new Orbit(38.4399, 38.3868, 0);
+    //moon_orbit.draw(scene);
+    var moon = THREEx.Planets.createMoon();
+    moon.castShadow = true;
+    moon.rotation.x = 24*Math.PI/180;
+   // scene.add(moon);
       /*
      //mars
      var mars_orbit = new Orbit(22793.9177843091, 22694.1796053);
@@ -242,7 +253,10 @@ function init() {
 
 
 
-        mercury.rotation.y += 0.0001;
+        mercury.rotation.y += 0.00001759;
+        venus.rotation.y += 0.0000729;
+        earth.rotation.y += 0.0029;
+        earth_cloud.rotation.y += 1/8 * t;
 
         if (!info) {
             controls.update(0.1);
@@ -253,8 +267,14 @@ function init() {
              venus.position.x = Math.sin(t*0.1)*10820.859888;
              venus.position.z = Math.cos(t*0.1)*10820.611662;
 
-             earth.position.x = Math.sin(t*0.1)*14959.8021093;
-             earth.position.z = Math.cos(t*0.1)*14957.7130861;
+             earth.position.x = Math.sin(t*0.01)*14959.8021093;
+             earth.position.z = Math.cos(t*0.01)*14957.7130861;
+
+           // moon.position.x = 38.4399+earth.position.x;
+           // moon.position.z = 38.3868+earth.position.z;
+           // console.log(moon.position.x);
+           // console.log(earth.position.x);
+
               /*
              mars.position.x = Math.sin(t*0.1)*22793.9177843091;
              mars.position.z = Math.cos(t*0.1)*22694.1796053;
@@ -282,12 +302,18 @@ function init() {
         }
         else {
             if (mercury_info) {
-                if (camera.position.z  > mercury.position.z + 3000) {
-                    camera.position.z -=4000;
+                if (camera.position.z  != mercury.position.z+50 ) {
+                    camera.position.z = mercury.position.z+50 ;
                     camera.lookAt(mercury.position);
+
                 }
-                if (camera.position.x  -1<  mercury.position.x ) {
-                    camera.position.x +=4000;
+                if (camera.position.x  != mercury.position.x + 70 ) {
+                    camera.position.x = mercury.position.x + 70;
+                    camera.lookAt(mercury.position);
+
+                }
+                if (camera.position.y  != mercury.position.y  ) {
+                    camera.position.y = mercury.position.y ;
                     camera.lookAt(mercury.position);
                 }
                 else {
@@ -296,26 +322,39 @@ function init() {
             }
 
             if (venus_info) {
-                if (camera.position.z  > venus.position.z+3000 ) {
-                    camera.position.z -=4000;
+                if (camera.position.z  != venus.position.z+50 ) {
+                    camera.position.z =venus.position.z+50 ;
+                    camera.lookAt(venus.position);
+                	
+                }
+                if (camera.position.x  != venus.position.x + 100 ) {
+                    camera.position.x =venus.position.x + 100;
+                    camera.lookAt(venus.position);
+                	
+                }
+                if (camera.position.y  != venus.position.y  ) {
+                    camera.position.y = venus.position.y ;
                     camera.lookAt(venus.position);
                 }
-                if (camera.position.x  -1<  venus.position.x ) {
-                    camera.position.x +=4000;
-                    camera.lookAt(venus.position);
-                }
+               
                 else {
                     document.getElementById("2").style.display = "block";
                 }
             }
 
             if (earth_info) {
-                if (camera.position.z  > earth.position.z+3000 ) {
-                    camera.position.z -=4000;
+                if (camera.position.z  != earth.position.z+50 ) {
+                    camera.position.z = earth.position.z+50 ;
                     camera.lookAt(earth.position);
+
                 }
-                if (camera.position.x  -1<  earth.position.x ) {
-                    camera.position.x +=4000;
+                if (camera.position.x  != earth.position.x + 150 ) {
+                    camera.position.x = earth.position.x + 150;
+                    camera.lookAt(earth.position);
+
+                }
+                if (camera.position.y  != earth.position.y  ) {
+                    camera.position.y = earth.position.y ;
                     camera.lookAt(earth.position);
                 }
                 else {
