@@ -256,8 +256,7 @@ function init() {
         mercury.rotation.y += 0.00001759;
         venus.rotation.y += 0.0000729;
         earth.rotation.y += 0.0029;
-        earth_cloud.rotation.y += 1/8 * t;
-
+        earth_cloud.rotation.y += 0.003;
         if (!info) {
             controls.update(0.1);
 
@@ -269,6 +268,8 @@ function init() {
 
              earth.position.x = Math.sin(t*0.01)*14959.8021093;
              earth.position.z = Math.cos(t*0.01)*14957.7130861;
+            earth_cloud.position.x = earth.position.x;
+            earth_cloud.position.z = earth.position.z;
 
            // moon.position.x = 38.4399+earth.position.x;
            // moon.position.z = 38.3868+earth.position.z;

@@ -100,7 +100,7 @@ THREEx.Planets.createEarthCloud	= function(){
 	}, false);
 	imageMap.src	= 'https://dariayermolova.github.io/solar-webgl/images/earthcloudmap.jpg';
 
-	var geometry	= new THREE.SphereGeometry(1.29, 32, 32)
+	var geometry	= new THREE.SphereGeometry(1.279, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map		: new THREE.Texture(canvasResult),
 		side		: THREE.DoubleSide,
