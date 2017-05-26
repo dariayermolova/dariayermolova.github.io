@@ -97,149 +97,94 @@ function init() {
 
     //mercury
     var mercury_info = false;
-    var mercury_orbit = new Orbit(5790.908263, 5667.320223, -3.38);
+    var mercury_orbit = new Orbit(5790, 5667, -3);
     mercury_orbit.draw(scene);
     var mercury = THREEx.Planets.createMercury();
     mercury.castShadow = true;
     mercury.rotation.x = 0.01*Math.PI/180;
     scene.add(mercury);
 
-
      //venus
     var venus_info = false;
-     var venus_orbit = new Orbit(10820.859888, 10820.611662, 0);
-     venus_orbit.draw(scene);
+    var venus_orbit = new Orbit(10820.8, 10820.6, -3);
+    venus_orbit.draw(scene);
     var venus = THREEx.Planets.createVenus();
-     venus.castShadow = true;
+    venus.castShadow = true;
     venus.rotation.x = 177*Math.PI/180;
-     scene.add(venus);
-
+    scene.add(venus);
 
      //earth
     var earth_info = false;
-     var earth_orbit = new Orbit(14959.8021093, 14957.7130861, 0);
-     earth_orbit.draw(scene);
+    var earth_orbit = new Orbit(14959, 14957, -7);
+    earth_orbit.draw(scene);
     var earth = THREEx.Planets.createEarth();
-     earth.castShadow = true;
-     earth.rotation.x = 23*Math.PI/180;
-     scene.add(earth);
+    earth.castShadow = true;
+    earth.rotation.x = 23*Math.PI/180;
+    scene.add(earth);
     var earth_cloud = THREEx.Planets.createEarthCloud();
     scene.add(earth_cloud);
 
-
     //moon
-    var moon_orbit = new Orbit(38.4399, 38.3868, 0);
+    var moon_info = false;
+    var moon_orbit = new Orbit(38.4, 38.3, -12);
     //moon_orbit.draw(scene);
     var moon = THREEx.Planets.createMoon();
     moon.castShadow = true;
     moon.rotation.x = 24*Math.PI/180;
-   // scene.add(moon);
-      /*
-     //mars
-     var mars_orbit = new Orbit(22793.9177843091, 22694.1796053);
-     mars_orbit.draw(scene);
+    scene.add(moon);
 
-     var mars, mars_geom, mars_mat;
-     mars_geom = new THREE.SphereGeometry(0.3376, 20, 20);
-     //var mars_l =  new THREE.TextureLoader();
-     //var mars_text = mars_l.load('../img/mars.jpg');
-     //mars_text.anisotrope = 8;
-     //mars_mat = new THREE.MeshPhongMaterial({map: mars_text});
-     mars_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
-     mars = new THREE.Mesh(mars_geom, mars_mat);
+     //mars
+     var mars_info = false;
+     var mars_orbit = new Orbit(22793, 22694, -5);
+     mars_orbit.draw(scene);
+     var mars = THREEx.Planets.createMars();
      mars.castShadow = true;
      scene.add(mars);
 
      //jupiter
-     var jupiter_orbit = new Orbit(77829.835587, 76897.879541027);
+     var jupiter_info = false;
+     var jupiter_orbit = new Orbit(77829, 76897, -6);
      jupiter_orbit.draw(scene);
-
-     var jupiter, jupiter_geom, jupiter_mat;
-     jupiter_geom = new THREE.SphereGeometry(6.6854, 20, 20);
-     //var jupiter_l =  new THREE.TextureLoader();
-     //var jupiter_text = jupiter_l.load('../img/jupiter.jpg');
-     //jupiter_text.anisotrope = 8;
-     //jupiter_mat = new THREE.MeshPhongMaterial({map: jupiter_text});
-     jupiter_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
-     jupiter = new THREE.Mesh(jupiter_geom, jupiter_mat);
+     var jupiter = THREEx.Planets.createJupiter();
      jupiter.castShadow = true;
      scene.add(jupiter);
 
-
      //saturn
-     var saturn_orbit = new Orbit(142939.41235652, 142716.05792793);
+     var saturn_info = false;
+     var saturn_orbit = new Orbit(142939, 142716, -5);
      saturn_orbit.draw(scene);
-
-     var saturn, saturn_geom, saturn_mat;
-     saturn_geom = new THREE.SphereGeometry(6.026, 20, 20);
-     //var saturn_l =  new THREE.TextureLoader();
-     //var saturn_text = saturn_l.load('../img/saturn.jpg');
-     //saturn_text.anisotrope = 8;
-     //saturn_mat = new THREE.MeshPhongMaterial({map: saturn_text});
-     saturn_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
-     saturn = new THREE.Mesh(saturn_geom, saturn_mat);
-     scene.add(saturn);
+     var saturn = THREEx.Planets.createSaturn();
      saturn.castShadow = true;
-
-     var ring_saturn_geom = new THREE.Geometry();
-     var ring_saturn_mat = new THREE.ParticleBasicMaterial({color: 0xffffff, opacity:0.3, size:1, sizeAttenuation:false});
-     for (var i=0; i<20000; i++) {
-     var vertex = new THREE.Vector3();
-     vertex.x = Math.sin(180/Math.PI*i)*(170-i/80);
-     vertex.y = Math.random()*20;
-     vertex.z = Math.cos(180/Math.PI*i)*(170-i/80);
-     ring_saturn_geom.vertices.push(vertex);
-     };
-     var ring = new THREE.ParticleBasicMaterial(ring_saturn_geom, ring_saturn_mat);
-     ring.castShadow = true;
-     scene.add(ring);
-
+     scene.add(saturn);
+     var saturn_ring = THREEx.Planets.createSaturnRing();
+     scene.add(saturn_ring);
 
      //uranus
-     var uranus_orbit = new Orbit(287503.859555217, 245221.12632768);
+     var uranus_info = false;
+     var uranus_orbit = new Orbit(287503, 245221,-6);
      uranus_orbit.draw(scene);
-
-     var uranus, uranus_geom, uranus_mat;
-     uranus_geom = new THREE.SphereGeometry(2.5559, 30, 30);
-     //var uranus_l =  new THREE.TextureLoader();
-     //var uranus_text = uranus_l.load('../img/uranus.jpg');
-     //uranus_text.anisotrope = 8;
-     //uranus_mat = new THREE.MeshPhongMaterial({map: uranus_text});
-     uranus_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
-     uranus = new THREE.Mesh(uranus_geom, uranus_mat);
+     var uranus = THREEx.Planets.createUranus();
      uranus.castShadow = true;
      scene.add(uranus);
+     var uranus_ring = THREEx.Planets.createUranusRing();
+     scene.add(uranus_ring);
 
      //neptune
-     var neptune_orbit = new Orbit(450444.97405412, 450416.661874038);
+     var neptune_info = false;
+     var neptune_orbit = new Orbit(450444, 450416, -6);
      neptune_orbit.draw(scene);
-
-     var neptune, neptune_geom, neptune_mat;
-     neptune_geom = new THREE.SphereGeometry(2.4764, 20, 20);
-     //var neptune_l =  new THREE.TextureLoader();
-     //var neptune_text = neptune_l.load('../img/neptune.jpg');
-     //neptune_text.anisotrope = 8;
-     // neptune_mat = new THREE.MeshPhongMaterial({map: neptune_text});
-     neptune_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
-     neptune = new THREE.Mesh(neptune_geom, neptune_mat);
+     var neptune = THREEx.Planets.createNeptune;
      neptune.castShadow = true;
-     scene.add(neptune);
+    // scene.add(neptune);
 
      //pluto
-     var pluto_orbit = new Orbit(531344.35054905, 510626.19820868);
+     var pluto_info = false;
+     var pluto_orbit = new Orbit(531344, 510626, -17);
      pluto_orbit.draw(scene);
-
-     var pluto, pluto_geom, pluto_mat;
-     pluto_geom = new THREE.SphereGeometry(0.169, 20, 20);
-     //var pluto_l =  new THREE.TextureLoader();
-     //var pluto_text = pluto_l.load('../img/pluto.png');
-     //pluto_text.anisotrope = 8;
-     //pluto_mat = new THREE.MeshPhongMaterial({map: pluto_text});
-     pluto_mat = new THREE.MeshNormalMaterial({color: 0xffff00, wireframe:true});
-     pluto = new THREE.Mesh(pluto_geom, pluto_mat);
+     var pluto = THREEx.Planets.createPluto();
      pluto.castShadow = true;
      scene.add(pluto);
-     */
+
     var t = 0;
     var y = 0;
     document.addEventListener('mousemove', function (event) {
@@ -260,44 +205,55 @@ function init() {
         if (!info) {
             controls.update(0.1);
 
-            mercury.position.x = Math.sin(t * 0.1) * 5667.320223;
-            mercury.position.z = Math.cos(t * 0.1) * 5667.320223;
+            mercury.position.x = Math.sin(t * 0.1) * 5690;
+            mercury.position.z = Math.cos(t * 0.1) * 5667;
+            mercury.position.y = 0 - 303 * Math.sin(t * 0.1);
 
-             venus.position.x = Math.sin(t*0.1)*10820.859888;
-             venus.position.z = Math.cos(t*0.1)*10820.611662;
+            venus.position.x = Math.sin(t*0.1)*10820.8;
+            venus.position.z = Math.cos(t*0.1)*10820.6;
+            venus.position.y = 0 - 567 * Math.sin(t * 0.1);
 
-             earth.position.x = Math.sin(t*0.01)*14959.8021093;
-             earth.position.z = Math.cos(t*0.01)*14957.7130861;
+            earth.position.x = Math.sin(t*0.01)*14959;
+            earth.position.z = Math.cos(t*0.01)*14957;
+            earth.position.y = 0 - 1836 * Math.sin(t * 0.1);
             earth_cloud.position.x = earth.position.x;
             earth_cloud.position.z = earth.position.z;
+            earth_cloud.position.y = earth.position.y;
 
-           // moon.position.x = 38.4399+earth.position.x;
-           // moon.position.z = 38.3868+earth.position.z;
-           // console.log(moon.position.x);
-           // console.log(earth.position.x);
+            moon.position.x =earth.position.x + 38.4 * Math.sin(t * 0.5);
+            moon.position.z =earth.position.z + 38.3 * Math.sin(t * 0.5);
+            moon.position.y = 0 + 8.1  * Math.sin(t * 0.5);
 
-              /*
-             mars.position.x = Math.sin(t*0.1)*22793.9177843091;
-             mars.position.z = Math.cos(t*0.1)*22694.1796053;
+            mars.position.x = Math.sin(t*0.1)*22793;
+            mars.position.z = Math.cos(t*0.1)*22694;
+            mars.position.y = 0 - 1994 * Math.sin(t * 0.1);
 
-             jupiter.position.x = Math.sin(t*0.1)*77829.835587;
-             jupiter.position.z = Math.cos(t*0.1)*76897.879541027;
+            jupiter.position.x = Math.sin(t*0.1)*77829;
+            jupiter.position.z = Math.cos(t*0.1)*76897;
+            jupiter.position.y = 0 - 8180 * Math.sin(t * 0.1);
 
-             saturn.position.x = Math.sin(t*0.1)*142939.41235652;
-             saturn.position.z = Math.cos(t*0.1)*142716.05792793;
+            saturn.position.x = Math.sin(t*0.1)*142939;
+            saturn.position.z = Math.cos(t*0.1)*142716;
+            saturn.position.y = 0 - 12505  * Math.sin(t * 0.1);
+            saturn_ring.position.x = saturn.position.x;
+            saturn_ring.position.z = saturn.position.z;
+            saturn_ring.position.y = saturn.position.y;
 
-             //ring.position.x = saturn.position.x;
-             //ring.position.z = saturn.position.z;
+            uranus.position.x = Math.sin(t*0.1)*287503;
+            uranus.position.z = Math.cos(t*0.1)*245221;
+            uranus.position.y = 0 - 30217 * Math.sin(t * 0.1);
+            uranus_ring.position.x = uranus.position.x;
+            uranus_ring.position.z = uranus.position.z;
+            uranus_ring.position.y = uranus.position.y;
 
-             uranus.position.x = Math.sin(t*0.1)*287503.859555217;
-             uranus.position.z = Math.cos(t*0.1)*245221.12632768;
+            //neptune.position.x = Math.sin(t*0.1)*450444;
+            //neptune.position.z = Math.cos(t*0.1)*450416;
+            //neptune.position.y = 0 - 47343 * Math.sin(t * 0.1);
 
-             neptune.position.x = Math.sin(t*0.1)*450444.97405412;
-             neptune.position.z = Math.cos(t*0.1)*450416.661874038;
+            pluto.position.x = Math.sin(t*0.1)*531344;
+            pluto.position.z = Math.cos(t*0.1)*510626;
+            pluto.position.y = 0 - 162448 * Math.sin(t * 0.1);
 
-             pluto.position.x = Math.sin(t*0.1)*531344.35054905;
-             pluto.position.z = Math.cos(t*0.1)*510626.19820868;
-             */
             camera.position.y = y*1000;
             camera.lookAt(scene.position);
         }
@@ -359,7 +315,150 @@ function init() {
                     camera.lookAt(earth.position);
                 }
                 else {
+                    moon.position.x =earth.position.x + 38.4399 * Math.sin(t * 0.1);
+                    moon.position.z =earth.position.z + 38.3868 * Math.sin(t * 0.1);
+                    moon.position.y =0 +  3.36 * Math.sin(t * 0.1);
                     document.getElementById("3").style.display = "block";
+                }
+            }
+
+            if (moon_info) {
+                if (camera.position.z  != moon.position.z+50 ) {
+                    camera.position.z = moon.position.z+50 ;
+                    camera.lookAt(moon.position);
+
+                }
+                if (camera.position.x  != moon.position.x + 50 ) {
+                    camera.position.x = moon.position.x + 50;
+                    camera.lookAt(moon.position);
+
+                }
+                if (camera.position.y  != moon.position.y  ) {
+                    camera.position.y = moon.position.y ;
+                    camera.lookAt(moon.position);
+                }
+                else {
+                    document.getElementById("4").style.display = "block";
+                }
+            }
+
+            if (mars_info) {
+                if (camera.position.z  != mars.position.z+50 ) {
+                    camera.position.z = mars.position.z+50 ;
+                    camera.lookAt(mars.position);
+
+                }
+                if (camera.position.x  != mars.position.x + 50 ) {
+                    camera.position.x = mars.position.x + 50;
+                    camera.lookAt(mars.position);
+
+                }
+                if (camera.position.y  != mars.position.y  ) {
+                    camera.position.y = mars.position.y ;
+                    camera.lookAt(mars.position);
+                }
+                else {
+                    document.getElementById("5").style.display = "block";
+                }
+            }
+
+            if (jupiter_info) {
+                if (camera.position.z  != jupiter.position.z+50 ) {
+                    camera.position.z = jupiter.position.z+50 ;
+                    camera.lookAt(jupiter.position);
+
+                }
+                if (camera.position.x  != jupiter.position.x + 50 ) {
+                    camera.position.x = jupiter.position.x + 50;
+                    camera.lookAt(jupiter.position);
+
+                }
+                if (camera.position.y  != jupiter.position.y  ) {
+                    camera.position.y = jupiter.position.y ;
+                    camera.lookAt(jupiter.position);
+                }
+                else {
+                    document.getElementById("6").style.display = "block";
+                }
+            }
+
+            if (saturn_info) {
+                if (camera.position.z  != saturn.position.z+50 ) {
+                    camera.position.z = saturn.position.z+50 ;
+                    camera.lookAt(saturn.position);
+
+                }
+                if (camera.position.x  != saturn.position.x + 50 ) {
+                    camera.position.x = saturn.position.x + 50;
+                    camera.lookAt(saturn.position);
+
+                }
+                if (camera.position.y  != saturn.position.y  ) {
+                    camera.position.y = saturn.position.y ;
+                    camera.lookAt(saturn.position);
+                }
+                else {
+                    document.getElementById("7").style.display = "block";
+                }
+            }
+
+            if (uranus_info) {
+                if (camera.position.z  != uranus.position.z+50 ) {
+                    camera.position.z = uranus.position.z+50 ;
+                    camera.lookAt(uranus.position);
+
+                }
+                if (camera.position.x  != uranus.position.x + 50 ) {
+                    camera.position.x = uranus.position.x + 50;
+                    camera.lookAt(uranus.position);
+
+                }
+                if (camera.position.y  != uranus.position.y  ) {
+                    camera.position.y = uranus.position.y ;
+                    camera.lookAt(uranus.position);
+                }
+                else {
+                    document.getElementById("8").style.display = "block";
+                }
+            }
+
+            if (neptune_info) {
+                if (camera.position.z  != neptune.position.z+50 ) {
+                    camera.position.z = neptune.position.z+50 ;
+                    camera.lookAt(neptune.position);
+
+                }
+                if (camera.position.x  != neptune.position.x + 50 ) {
+                    camera.position.x = neptune.position.x + 50;
+                    camera.lookAt(neptune.position);
+
+                }
+                if (camera.position.y  != neptune.position.y  ) {
+                    camera.position.y = neptune.position.y ;
+                    camera.lookAt(neptune.position);
+                }
+                else {
+                    document.getElementById("9").style.display = "block";
+                }
+            }
+
+            if (pluto_info) {
+                if (camera.position.z  != pluto.position.z+50 ) {
+                    camera.position.z = pluto.position.z+50 ;
+                    camera.lookAt(pluto.position);
+
+                }
+                if (camera.position.x  != pluto.position.x + 50 ) {
+                    camera.position.x = pluto.position.x + 50;
+                    camera.lookAt(pluto.position);
+
+                }
+                if (camera.position.y  != pluto.position.y  ) {
+                    camera.position.y = pluto.position.y ;
+                    camera.lookAt(pluto.position);
+                }
+                else {
+                    document.getElementById("10").style.display = "block";
                 }
             }
         }
@@ -375,9 +474,23 @@ this.showSolar = function showSolar() {
     mercury_info = false;
     venus_info = false;
     earth_info = false;
+    moon_info = false;
+    mars_info = false;
+    jupiter_info = false;
+    saturn_info = false;
+    uranus_info = false;
+    neptune_info = false;
+    pluto_info = false;
     document.getElementById("1").style.display = "none";
     document.getElementById("2").style.display = "none";
     document.getElementById("3").style.display = "none";
+    document.getElementById("4").style.display = "none";
+    document.getElementById("5").style.display = "none";
+    document.getElementById("6").style.display = "none";
+    document.getElementById("7").style.display = "none";
+    document.getElementById("8").style.display = "none";
+    document.getElementById("9").style.display = "none";
+    document.getElementById("10").style.display = "none";
     camera.position.z = 300000;
     camera.lookAt(scene.position);
 
@@ -395,6 +508,34 @@ this.showInfo =  function showInfo(num) {
                 break;
             case 3:
                 earth_info = true;
+                info = true;
+                break;
+            case 4:
+                moon_info = true;
+                info = true;
+                break;
+            case 5:
+                mars_info = true;
+                info = true;
+                break;
+            case 6:
+                jupiter_info = true;
+                info = true;
+                break;
+            case 7:
+                saturn_info = true;
+                info = true;
+                break;
+            case 8:
+                uranus_info = true;
+                info = true;
+                break;
+            case 9:
+                neptune_info = true;
+                info = true;
+                break;
+            case 10:
+                pluto_info = true;
                 info = true;
                 break;
             default:
