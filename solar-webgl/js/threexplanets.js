@@ -113,7 +113,7 @@ THREEx.Planets.createEarthCloud	= function(){
 
 
 THREEx.Planets.createMoon	= function(){
-	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
+	var geometry	= new THREE.SphereGeometry(0.1737, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map	: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/moonmap1k.jpg'),
 		bumpMap	: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/moonbump1k.jpg'),
@@ -124,7 +124,7 @@ THREEx.Planets.createMoon	= function(){
 }
 
 THREEx.Planets.createMars	= function(){
-	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
+	var geometry	= new THREE.SphereGeometry(0.338, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map	: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/marsmap1k.jpg'),
 		bumpMap	: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/marsbump1k.jpg'),
@@ -135,7 +135,7 @@ THREEx.Planets.createMars	= function(){
 }
 
 THREEx.Planets.createJupiter	= function(){
-	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
+	var geometry	= new THREE.SphereGeometry(6.9173, 32, 32)
 	var texture	= THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/jupitermap.jpg')
 	var material	= new THREE.MeshPhongMaterial({
 		map	: texture,
@@ -148,12 +148,12 @@ THREEx.Planets.createJupiter	= function(){
 
 
 THREEx.Planets.createSaturn	= function(){
-	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
-	var texture	= THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/saturnmap.jpg')
+	var geometry	= new THREE.SphereGeometry(5.7316, 32, 32)
+	var texture	= THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/saturn.jpg')
 	var material	= new THREE.MeshPhongMaterial({
 		map	: texture,
 		bumpMap	: texture,
-		bumpScale: 0.05,
+		bumpScale: 0.02,
 	})
 	var mesh	= new THREE.Mesh(geometry, material)
 	return mesh	
@@ -207,22 +207,22 @@ THREEx.Planets.createSaturnRing	= function(){
 	}, false);
 	imageMap.src	= 'https://dariayermolova.github.io/solar-webgl/images/saturnringcolor.jpg';
 	
-	var geometry	= new THREEx.Planets._RingGeometry(0.55, 0.75, 64);
+	var geometry	= new THREEx.Planets._RingGeometry(9, 6, 64);
 	var material	= new THREE.MeshPhongMaterial({
 		map		: new THREE.Texture(canvasResult),
 		// map		: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/ash_uvgrid01.jpg'),
 		side		: THREE.DoubleSide,
 		transparent	: true,
-		opacity		: 0.8,
+		opacity		: 0.9,
 	})
 	var mesh	= new THREE.Mesh(geometry, material)
-	mesh.lookAt(new THREE.Vector3(0.5,-4,1))
+	mesh.lookAt(new THREE.Vector3(5.7,20,1))
 	return mesh	
 }
 
 
 THREEx.Planets.createUranus	= function(){
-	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
+	var geometry	= new THREE.SphereGeometry(2.5266, 32, 32)
 	var texture	= THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/uranusmap.jpg')
 	var material	= new THREE.MeshPhongMaterial({
 		map	: texture,
@@ -280,22 +280,22 @@ THREEx.Planets.createUranusRing	= function(){
 	}, false);
 	imageMap.src	= 'https://dariayermolova.github.io/solar-webgl/images/uranusringcolour.jpg';
 	
-	var geometry	= new THREEx.Planets._RingGeometry(0.55, 0.75, 64);
+	var geometry	= new THREEx.Planets._RingGeometry(4, 2.8, 64);
 	var material	= new THREE.MeshPhongMaterial({
 		map		: new THREE.Texture(canvasResult),
 		// map		: THREE.ImageUtils.loadTexture(THREEx.Planets.baseURL+'images/ash_uvgrid01.jpg'),
 		side		: THREE.DoubleSide,
 		transparent	: true,
-		opacity		: 0.8,
+		opacity		: 0.7,
 	})
 	var mesh	= new THREE.Mesh(geometry, material)
-	mesh.lookAt(new THREE.Vector3(0.5,-4,1))
+	mesh.lookAt(new THREE.Vector3(2.6,20,1))
 	return mesh	
 }
 
 
 THREEx.Planets.createNeptune	= function(){
-	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
+	var geometry	= new THREE.SphereGeometry(2.4552, 32, 32)
 	var texture	= THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/neptunemap.jpg')
 	var material	= new THREE.MeshPhongMaterial({
 		map	: texture,
@@ -309,7 +309,7 @@ THREEx.Planets.createNeptune	= function(){
 
 
 THREEx.Planets.createPluto	= function(){
-	var geometry	= new THREE.SphereGeometry(0.5, 32, 32)
+	var geometry	= new THREE.SphereGeometry(0.1187, 32, 32)
 	var material	= new THREE.MeshPhongMaterial({
 		map	: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/plutomap1k.jpg'),
 		bumpMap	: THREE.ImageUtils.loadTexture('https://dariayermolova.github.io/solar-webgl/images/plutobump1k.jpg'),

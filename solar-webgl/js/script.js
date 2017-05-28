@@ -34,7 +34,7 @@ function init() {
     controls.movementSpeed = 20000;
     controls.looSpeed = 1.6;
 
-    var light = new THREE.PointLight( 0xffffff, 1.4, 30000 ); // soft white light
+    var light = new THREE.PointLight( 0xffffff, 1.4, 1000000000 ); // soft white light
     light.position.set(-1190,0,0);
     light.castShadow = true;
     light.shadowMapWigth = 2048;
@@ -122,6 +122,7 @@ function init() {
     earth.rotation.x = 23*Math.PI/180;
     scene.add(earth);
     var earth_cloud = THREEx.Planets.createEarthCloud();
+    earth_cloud.rotation.x = 23*Math.PI/180;
     scene.add(earth_cloud);
 
     //moon
@@ -139,6 +140,7 @@ function init() {
      mars_orbit.draw(scene);
      var mars = THREEx.Planets.createMars();
      mars.castShadow = true;
+     mars.rotation.x = 25*Math.PI/180;
      scene.add(mars);
 
      //jupiter
@@ -147,6 +149,7 @@ function init() {
      jupiter_orbit.draw(scene);
      var jupiter = THREEx.Planets.createJupiter();
      jupiter.castShadow = true;
+     jupiter.rotation.x = 3*Math.PI/180;
      scene.add(jupiter);
 
      //saturn
@@ -155,8 +158,10 @@ function init() {
      saturn_orbit.draw(scene);
      var saturn = THREEx.Planets.createSaturn();
      saturn.castShadow = true;
+     saturn.rotation.x = 26*Math.PI/180;
      scene.add(saturn);
      var saturn_ring = THREEx.Planets.createSaturnRing();
+     saturn_ring.rotation.x = -66*Math.PI/180;
      scene.add(saturn_ring);
 
      //uranus
@@ -165,17 +170,20 @@ function init() {
      uranus_orbit.draw(scene);
      var uranus = THREEx.Planets.createUranus();
      uranus.castShadow = true;
+     uranus.rotation.x = 97*Math.PI/180;
      scene.add(uranus);
      var uranus_ring = THREEx.Planets.createUranusRing();
+     uranus_ring.rotation.x = 10*Math.PI/180;
      scene.add(uranus_ring);
 
      //neptune
      var neptune_info = false;
      var neptune_orbit = new Orbit(450444, 450416, -6);
      neptune_orbit.draw(scene);
-     var neptune = THREEx.Planets.createNeptune;
+     var neptune = THREEx.Planets.createNeptune();
      neptune.castShadow = true;
-    // scene.add(neptune);
+     neptune.rotation.x = 28*Math.PI/180;
+     scene.add(neptune);
 
      //pluto
      var pluto_info = false;
@@ -183,6 +191,7 @@ function init() {
      pluto_orbit.draw(scene);
      var pluto = THREEx.Planets.createPluto();
      pluto.castShadow = true;
+     pluto.rotation.x = 119*Math.PI/180;
      scene.add(pluto);
 
     var t = 0;
@@ -198,10 +207,16 @@ function init() {
 
 
 
-        mercury.rotation.y += 0.00001759;
-        venus.rotation.y += 0.0000729;
+        mercury.rotation.y += 0.001;
+        venus.rotation.y += 0.001;
         earth.rotation.y += 0.0029;
-        earth_cloud.rotation.y += 0.003;
+        earth_cloud.rotation.y += 0.004;
+        mars.rotation.y +=0.001;
+        jupiter.rotation.y +=0.001;
+        saturn.rotation.y +=0.001;
+        uranus.rotation.y +=0.001;
+        neptune.rotation.y +=0.001;
+        pluto.rotation.y +=0.001;
         if (!info) {
             controls.update(0.1);
 
@@ -246,9 +261,9 @@ function init() {
             uranus_ring.position.z = uranus.position.z;
             uranus_ring.position.y = uranus.position.y;
 
-            //neptune.position.x = Math.sin(t*0.1)*450444;
-            //neptune.position.z = Math.cos(t*0.1)*450416;
-            //neptune.position.y = 0 - 47343 * Math.sin(t * 0.1);
+            neptune.position.x = Math.sin(t*0.1)*450444;
+            neptune.position.z = Math.cos(t*0.1)*450416;
+            neptune.position.y = 0 - 47343 * Math.sin(t * 0.1);
 
             pluto.position.x = Math.sin(t*0.1)*531344;
             pluto.position.z = Math.cos(t*0.1)*510626;
@@ -368,8 +383,8 @@ function init() {
                     camera.lookAt(jupiter.position);
 
                 }
-                if (camera.position.x  != jupiter.position.x + 50 ) {
-                    camera.position.x = jupiter.position.x + 50;
+                if (camera.position.x  != jupiter.position.x + 800 ) {
+                    camera.position.x = jupiter.position.x + 800;
                     camera.lookAt(jupiter.position);
 
                 }
@@ -388,8 +403,8 @@ function init() {
                     camera.lookAt(saturn.position);
 
                 }
-                if (camera.position.x  != saturn.position.x + 50 ) {
-                    camera.position.x = saturn.position.x + 50;
+                if (camera.position.x  != saturn.position.x + 700 ) {
+                    camera.position.x = saturn.position.x + 700;
                     camera.lookAt(saturn.position);
 
                 }
@@ -408,8 +423,8 @@ function init() {
                     camera.lookAt(uranus.position);
 
                 }
-                if (camera.position.x  != uranus.position.x + 50 ) {
-                    camera.position.x = uranus.position.x + 50;
+                if (camera.position.x  != uranus.position.x + 500 ) {
+                    camera.position.x = uranus.position.x + 500;
                     camera.lookAt(uranus.position);
 
                 }
@@ -428,8 +443,8 @@ function init() {
                     camera.lookAt(neptune.position);
 
                 }
-                if (camera.position.x  != neptune.position.x + 50 ) {
-                    camera.position.x = neptune.position.x + 50;
+                if (camera.position.x  != neptune.position.x + 300 ) {
+                    camera.position.x = neptune.position.x + 300;
                     camera.lookAt(neptune.position);
 
                 }
@@ -448,8 +463,8 @@ function init() {
                     camera.lookAt(pluto.position);
 
                 }
-                if (camera.position.x  != pluto.position.x + 50 ) {
-                    camera.position.x = pluto.position.x + 50;
+                if (camera.position.x  != pluto.position.x + 20 ) {
+                    camera.position.x = pluto.position.x + 20;
                     camera.lookAt(pluto.position);
 
                 }
