@@ -1,0 +1,30 @@
+body {
+  margin: 0px;
+  overflow: hidden;
+  text-align: center;
+  background-color: #000000;
+  font-family: "Guardians";
+}
+a {
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  width: 100px;
+  margin-left: -50px;
+  text-decoration: none;
+  margin-top: 30%;
+  border: 1px solid #f0b25b;
+  padding: 5px;
+  color: #f0b25b;
+  display: none;
+}
+canvas {
+  z-index: 0;
+}
+
+
+@font-face {
+  font-family: "Guardians"; /* Имя шрифта */
+  src: url(../fonts/Guardians.ttf); /* Путь к файлу со шрифтом */
+}
+
