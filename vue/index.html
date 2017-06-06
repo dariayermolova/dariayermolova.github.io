@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.10.5/vue.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <div id="app" class="container">
+      <div class="input">
+      <input type="text" class="col-xs-10" placeholder="enter the task" v-model="message" >
+      <button class="col-xs-2" v-on="click: addMessage(message)" v-attr="disabled: message ===''" ><i class="ion-ios-plus-empty"></i></button>
+    </div>
+      <ul class="list">
+        <li   v-repeat="u : messages" ><i class="col-xs-10">{{u}}</i>
+        <button type="button" class="col-xs-2" v-on="click: removeMessage($index)"><i class="ion-ios-close-empty"></i></button>
+        </li>
+      </ul>
+      
+    </div>
+    
+    <script src="script.js"></script>
+    
+  </body>
+  
+
+</html>
