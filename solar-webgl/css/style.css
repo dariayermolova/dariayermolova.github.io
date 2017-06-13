@@ -1,4 +1,49 @@
-body { margin: 0px;     overflow: hidden; background-color: #000000}
+body { margin: 0px;     overflow: hidden; background-image: url(../images/galaxy.jpg);
+background-repeat: no-repeat;
+    background-size: cover;
+}
 canvas, #WebGL-output { z-index:0; }
-.btn {position: absolute; margin-top:20px; margin-bottom:20px; background: brown; z-index: 1000; font-size: 12px; color: white; border: 1px solid white;}
-.btn1 {position: absolute; background: brown; z-index: 1000; font-size: 12px; color: white; border: 1px solid white;}
+.btn {
+    margin-top:20px; 
+    margin-bottom:20px; 
+    background: transparent; 
+    z-index: 1000; 
+    font-size: 12px; 
+    border: none;
+    color: white; 
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    padding: 15px 15px;
+}
+.btn1 {
+    background: transparent ; 
+    z-index: 1000; 
+    font-size: 12px; 
+    color: white; 
+    border: none;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    padding: 15px 15px;
+}
+.input {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+.calendar {
+    color:white;
+    position: absolute;
+    z-index: 1000;
+    right: 20px;
+    text-align: center;
+}
+.calendar input {
+    background: (255,255,255,0.6); 
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    padding: 5px 5px;
+}
