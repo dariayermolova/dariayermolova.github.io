@@ -218,13 +218,16 @@ function init() {
      scene.add(pluto_text);
 
     var t = 0;
-    var y = 0;
-    document.addEventListener('mousemove', function (event) {
-        y = parseInt(event.offsetY);
-    });
+    //var y = 0;
+    //document.addEventListener('mousemove', function (event) {
+       // y = parseInt(event.offsetY);
+    //});
 
 
     animate();
+    
+    
+    
     function animate() {
         requestAnimationFrame(animate);
 
@@ -242,7 +245,7 @@ function init() {
         pluto.rotation.y +=0.001;
 
         if (!info) {
-            controls.update(0.1);
+            //controls.update(0.1);
 
             mercury.position.x = Math.sin(t * 0.01) * 5690;
             mercury.position.z = Math.cos(t * 0.01) * 5667;
@@ -323,7 +326,7 @@ function init() {
             pluto_text.position.z = pluto.position.z;
             pluto_text.position.y = pluto.position.y + 100;
 
-            camera.position.y = y*1000;
+            //camera.position.y = y*1000;
             camera.lookAt(scene.position);
         }
         else {

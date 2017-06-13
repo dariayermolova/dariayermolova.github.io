@@ -18,18 +18,29 @@
 </head>
 
 <body>
+    <div class="calendar"> 
+     
+  Первый:<input type="number" min="1" max="31"><br>
+  Второй:<input type="number" >
+
+    </div>
+<div class="input">
 <input type="button" value="Solar system" class="btn1" onclick="showSolar()"/>
-<input type="button" value="Mercury" class="btn" onclick="showInfo(1)" onmouseover="showColor(1)" onmouseout="hideColor()"/>
-<input type="button" value="Venus" class="btn" onclick="showInfo(2)" onmouseover="showColor(2)" onmouseout="hideColor()" style="margin-top:40px;"/>
-<input type="button" value="Earth" class="btn" onclick="showInfo(3)" onmouseover="showColor(3)" onmouseout="hideColor()" style="margin-top:60px;"/>
+<input type="button" value="Mercury" class="btn" onclick="showInfo(1)" />
+<input type="button" value="Venus" class="btn" onclick="showInfo(2)"  style="margin-top:40px;"/>
+<input type="button" value="Earth" class="btn" onclick="showInfo(3)"  style="margin-top:60px;"/>
 <input type="button" value="Moon" class="btn" onclick="showInfo(4)" style="margin-top:80px;"/>
-<input type="button" value="Mars" class="btn" onclick="showInfo(5)" onmouseover="showColor(4)" onmouseout="hideColor()" style="margin-top:100px;"/>
-<input type="button" value="Jupiter" class="btn" onclick="showInfo(6)" onmouseover="showColor(5)" onmouseout="hideColor()" style="margin-top:120px;"/>
-<input type="button" value="Saturn" class="btn" onclick="showInfo(7)" onmouseover="showColor(6)" onmouseout="hideColor()" style="margin-top:140px;"/>
-<input type="button" value="Uranus" class="btn" onclick="showInfo(8)" onmouseover="showColor(7)" onmouseout="hideColor()" style="margin-top:160px;"/>
-<input type="button" value="Neptune" class="btn" onclick="showInfo(9)" onmouseover="showColor(8)" onmouseout="hideColor()" style="margin-top:180px;"/>
-<input type="button" value="Pluto" class="btn" onclick="showInfo(10)" onmouseover="showColor(9)" onmouseout="hideColor()" style="margin-top:200px;"/>
+<input type="button" value="Mars" class="btn" onclick="showInfo(5)" style="margin-top:100px;"/>
+<input type="button" value="Jupiter" class="btn" onclick="showInfo(6)"  style="margin-top:120px;"/>
+<input type="button" value="Saturn" class="btn" onclick="showInfo(7)"  style="margin-top:140px;"/>
+<input type="button" value="Uranus" class="btn" onclick="showInfo(8)"  style="margin-top:160px;"/>
+<input type="button" value="Neptune" class="btn" onclick="showInfo(9)"  style="margin-top:180px;"/>
+<input type="button" value="Pluto" class="btn" onclick="showInfo(10)"  style="margin-top:200px;"/>
 <!--<input type="button" value="Sun" class="btn" onclick="showInfo(11)" style="margin-top:220px;"/>-->
+    </div>   
+ 
+ 
+    
 <div id="1" style="left:65%; top:20%;
 width: 300px; position: absolute; z-index: 100; color:#fff; display: none">
   Меркурий самая маленькая планета
