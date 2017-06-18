@@ -6,10 +6,12 @@
 
     <link rel="stylesheet" href="css/style.css">
     <script src="js/three.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/script_work.js"></script>
   <script src="js/FirstPersonControls.js"></script>
+    <script src="js/TrackballControls.js"></script>
+     <script src="js/control.js"></script>
   <script src="js/threexatmospherematerial.js"></script>
-  <script src="js/threexplanets.js"></script>
+  <script src="js/planets.js"></script>
   <script src="js/threextext.js"></script>
   <script src="../fonts/droid/droid_serif_bold.typeface.js"></script>
  <!-- <script src="js/1three.js"></script>
@@ -18,15 +20,21 @@
 </head>
 
 <body>
-    <div class="calendar"> 
-     
-<input type="number" min="1" max="31" onchange="alert(this.value)">
-<input type="button" value="Кнопка">
 
-    </div>
+<div class="calendar">
+<input type="number" id="mounth" onmousedown="return true" value="1" min="1" max="12" onfocus="this.value=''" />
+<input type="text" id="year" onmousedown="return true" value="1995" onfocus="this.value=''" />
+<input type="button" onclick="control_date()" value="Submit"/>
+<input type="button" value="Pause/Start" onclick="pause(1)"/>
+<p id="date" ></p>
+</div>
+
+
+
 <div class="input">
+
 <input type="button" value="Solar system" class="btn1" onclick="showSolar()"/>
-<input type="button" value="Mercury" class="btn" onclick="showInfo(1)" />
+<input type="button" value="Mercury" class="btn" onclick="showInfo(1)"/>
 <input type="button" value="Venus" class="btn" onclick="showInfo(2)"  style="margin-top:40px;"/>
 <input type="button" value="Earth" class="btn" onclick="showInfo(3)"  style="margin-top:60px;"/>
 <input type="button" value="Moon" class="btn" onclick="showInfo(4)" style="margin-top:80px;"/>
@@ -43,62 +51,68 @@
     
 <div id="1" style="left:65%; top:20%;
 width: 300px; position: absolute; z-index: 100; color:#fff; display: none">
-  Меркурий самая маленькая планета
+  Mercury - the smallest and the most internal planet of the solar system with an equatorial radius of 2439.7 kilometers.
+
+The average distance of Mercury from the Sun is slightly less than 58 km km. (57.91 km.).
+
+Its orbital period around the Sun 88 days is the shortest of all the planets of the solar system.
 
 </div>
 
 
 <div id="2" style="left:65%; top:20%;
 width: 300px; position: absolute; z-index: 100; color:#fff; display: none">
-  Венера
+  Venus is classified as a terrestrial planet, and sometimes it is called the "sister of the Earth". The average distance of Venus from the Sun is 108 million km. The period of revolution around the Sun is 224.7 Earth days. The inclination of the orbit to the plane of the ecliptic is 3.4 °. The radius of the planet is 6051.8 km, the mass is 4.87 · 1024 kg, the average density is 5.24 g / cm³.
 
 </div>
 
 <div id="3" style="left:65%; top:20%;
 width: 300px; position: absolute; z-index: 100; color:#fff; display: none">
-  Земля
+  The Earth is the third planet from the Sun. Fifth in size among all the planets of the solar system. It is also the largest in diameter, mass and density among the terrestrial planets. The Earth turns around the Sun and makes around it a full revolution in about 365.26 solar days - a sidereal year. The Earth's rotation axis is inclined 23.44 ° relative to the perpendicular to its orbital plane. The earth moves around the Sun in an elliptical orbit at a distance of about 150 million km with an average speed of 29.765 km / s. The speed varies from 30.27 km / s (at perihelion) to 29.27 km / s (in aphelion)
 
 </div>
 
 <div id="4" style="left:65%; top:20%;
 width: 300px; position: absolute; z-index: 100; color:#fff; display: none">
-  Луна
+  The moon is a natural satellite of the Earth. The closest satellite to the Sun The average distance between the centers of the Earth and the Moon is 384,467 km. Circulation around the Earth in an elliptical orbit with a period of 27.32166 days, this is the so-called sidereal month.
 
 </div>
 
 <div id="5" style="left:65%; top:20%;
 width: 300px; position: absolute; z-index: 100; color:#fff; display: none">
-  Марс
+   Mars is the fourth planet in the distance from the Sun and the seventh largest planet in the Solar System. The mass of Mars is 10.7% of the Earth's mass, the volume is 0.15 of the earth's volume, and the average linear diameter is 6800 km. The distance from Mars to the Sun is 228 million km, the period of revolution around the sun is equal to 687 terrestrial days. The period of rotation of the planet is 24 hours 37 minutes.
+
 
 </div>
 
 <div id="6" style="left:65%; top:20%;
 width: 300px; position: absolute; z-index: 100; color:#fff; display: none">
-  Юпитер
+  Jupiter - the fifth planet from the Sun, the largest in the solar system. Jupiter is classified as a gas giant. Its equatorial radius is 71.4 thousand km, which is 11.2 times the Earth's radius. Jupiter is the only planet whose center of mass with the Sun is outside the Sun and is about 7% of its solar radius. The mass of Jupiter is 2.47 times the total mass of all the other planets of the solar system combined. Density (1326 kg / m³) is approximately equal to the density of the Sun and is 4.16 times inferior to the Earth's density (5515 kg / m³).
 
 </div>
 
 <div id="7" style="left:65%; top:20%;
 width: 300px; position: absolute; z-index: 100; color:#fff; display: none">
-  Сатурн
+  Saturn is the sixth planet from the Sun and the second largest planet in the Solar System after Jupiter. Saturn is a gas giant. The equatorial radius of the planet is 60,300 km, the polar radius is 54,400 km. The mass of the planet is 95.2 times the mass of the Earth, but the average density of Saturn is only 0.687 g / cm3, which makes it the only planet in the solar system, whose average density is less than the density of water. The average distance between Saturn and the Sun is 1430 million km. Saturn turns around the Sun for 10 759 days.
 
 </div>
 
 <div id="8" style="left:65%; top:20%;
 width: 300px; position: absolute; z-index: 100; color:#fff; display: none">
-  Уран
+  Uranus is the seventh in distance from the Sun, the third in diameter and the fourth in mass. The average distance of the planet from the Sun is 2.8 billion km. The period of the full circulation of Uranus around the Sun is 84 Earth years. The distance between Uranus and the Earth varies from 2.6 to 3.15 billion km. The semimajor axis of the orbit is about 3 billion km.
 
 </div>
 
 <div id="9" style="left:65%; top:20%;
 width: 300px; position: absolute; z-index: 100; color:#fff; display: none">
-  Нептун
+  Neptune is the eighth planet of the solar system. Neptune is also the fourth largest and third largest planet. The mass of Neptune is 17.2 times. Neptune is an intermediate link between the Earth and large gas giants. The equatorial radius of Neptune is 24,764 km. Neptune is called "ice giants" The average distance between Neptune and the Sun is 4.55 billion km, and the total revolution around the Sun takes 164.79 years. The elliptical orbit of the planet is inclined by 1.77° relative to the Earth's orbit.
+
 
 </div>
 
 <div id="10" style="left:65%; top:20%;
 width: 300px; position: absolute; z-index: 100; color:#fff; display: none">
-  Плутон
+   Pluto is the largest known dwarf planet of the Solar System, a trans-neptunian object and the tenth mass (without satellites) celestial body revolving around the Sun - after eight planets. The inclination of the orbit to the plane of the ecliptic is 17.14°. The semimajor axis of the Pluto orbit is 5.906 billion km, but due to the large eccentricity, the distance of Pluto from the Sun varies from 4.437 billion km at perihelion to 7.376 billion km in aphelion. The direction of rotation around its axis in Pluto, like that of Venus with Uranus, is the opposite, that is, opposite to the direction of revolution of the planets around the Sun. The days on Pluto last 6,387 terrestrial days.
 
 </div>
 

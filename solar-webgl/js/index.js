@@ -5,7 +5,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var settings = {
   startDelay: 10,
-  duration: 300,
+  duration: 150,
   text: "Solar system",
   textSize: 180,
   //easeInOutCubic, easeOutCubic, easeOutBack or easeOutBounce
@@ -84,8 +84,8 @@ var Writer = function () {
     // Should be synchronous fetch but sometimes
     // the default font is used instead! W00t?!
 
-    this.ctx.fillStyle = "#f0b25b";
-    this.ctx.shadowColor = "#865f34";
+    this.ctx.fillStyle = "#DCDCDC";
+    this.ctx.shadowColor = "#808080";
     this.ctx.shadowOffsetX = 3;
     this.ctx.shadowOffsetY = 5;
     this.ctx.shadowBlur = 5;

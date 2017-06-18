@@ -4,6 +4,9 @@ body {
   text-align: center;
   background-color: #000000;
   font-family: "Guardians";
+    background-image: url(../images/galaxy_starfield.png);
+background-repeat: no-repeat;
+    background-size: cover;
 }
 a {
   z-index: 1;
@@ -13,10 +16,12 @@ a {
   margin-left: -50px;
   text-decoration: none;
   margin-top: 30%;
-  border: 1px solid #f0b25b;
+  border: 1px solid #ffffff;
   padding: 5px;
-  color: #f0b25b;
-  display: none;
+  color: #ffffff;
+}
+#start {
+    display: none;
 }
 canvas {
   z-index: 0;

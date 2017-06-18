@@ -14,8 +14,10 @@
 <body>
 
 
-
-  <a href="planet.html" id="start">Start</a>
+<div id="start">
+    <a href="planet.html" >start</a>
+    </div>
+  
   <canvas id="canvas"></canvas>
 
 
@@ -24,8 +26,13 @@
           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
           crossorigin="anonymous"></script>
   <script type="application/javascript">
-    $(document).ready(function(){
-    $("#start").fadeIn(40000);});</script>
+      var start = document.getElementById('start');
+      function block() {
+          start.style.display = "block";
+      }
+      
+      setTimeout(block, 15000);
+    </script>
   <script src='https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js'></script>
 
     <script src="js/index.js"></script>    <script src="js/jquery.js"></script>
