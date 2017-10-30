@@ -67,7 +67,7 @@ function initTroncLogic () {
 
 $SO.setConfig({
     publisherId: 'tronc',
-    sitename: 'nbf-1',
+    sitename: 'nbf1',
     contentId: 'content-3',
     threadUrl: '/index',
     autoStart: true,
