@@ -3144,14 +3144,17 @@
         
 	<hr style="height: 0px; display: inline-block; " class="post-divider " data-url="https://www.nextbigfuture.com/2017/10/saudi-arabia-invests-1-billion-into-virgin-galactic-with-480-million-option-for-space-services.html " data-title="Saudi Arabia invests $1 billion into Virgin Galactic with $480 million option for space services ">
 	
-	<a href="" class="more-comments">Show comments</a>
+	
   
                     
                     
-                   <div class="so_promo_comments_express">
-  <iframe
-    style="width: 100%; height: 134px; background: #fff; color: #000; overflow: hidden; border: 0"
-    src="http://pce-cmp.solidopinion.com/api/page?site-name=nbf1&thread-url=/index&content-id=content-3"
+  
+                    <div class="so_promo_comments_express">
+                        
+                        
+                         <iframe
+    style="width: 100%; height: 300px; background: #fff; color: #000; overflow: hidden; border: 0"
+    src="http://stage-pce-cmp.solidopinion.com/api/page?site-name=nbf1&thread-url=/index&content-id=content-3"
     onload="
       (function(frame) {
         var data;
@@ -3166,22 +3169,23 @@
 
           var payload = data.payload;
 
-          if (!payload) { return }
+          if (!payload || payload.type !== 'promo-comments-express') { return }
 
-          if (payload.type === 'promo-comments-express' && data.type === 'RESIZE_WIDGET') {
+          if (data.type === 'RESIZE_WIDGET') {
             frame.style.height = payload.height + 'px';
-          }
-          if (payload.widgetType === 'static' && data.type === 'REMOVE_WIDGET') {
-            frame.style.height = defaultHeight + 'px'
           }
         });
       })(this)"
     scrolling="no"
   ></iframe>
+                        
+                        
+
 </div>
 
 <style>
   .trb_cm_b {
+    margin-top: 20px;
     text-align: center;
     width: 240px;
     height: 40px;

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <head>
+    <script
+              src="https://code.jquery.com/jquery-2.2.4.js"
+              integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+              crossorigin="anonymous"></script>
+              </head>
+    <body>
+    <script src="script.js"></script>
+
+		<h2>headline</h2>
+		<div class="so_promo_headline"></div>
+
+<div class="so_promo_comments_express">
+  <iframe
+    style="width: 100%; height: 300px; background: #fff; color: #000; overflow: hidden; border: 0"
+    src="https://stage-pce-cmp.solidopinion.com/api/page?site-name=nbf1&thread-url=/index-2&content-id=content-3"
+    onload="
+      (function(frame) {
+        var data;
+        var height;
+
+        window.addEventListener('message', function(event) {
+          try {
+            data = JSON.parse(event.data);
+          } catch (error) {
+            return;
+          }
+
+          var payload = data.payload;
+
+          if (!payload || payload.type !== 'promo-comments-express') { return }
+
+          if (data.type === 'RESIZE_WIDGET') {
+            frame.style.height = payload.height + 'px';
+          }
+        });
+      })(this)"
+    scrolling="no"
+  ></iframe>
+</div>
+
+<style>
+  .trb_cm_b {
+    text-align: center;
+    width: 240px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0 auto 20px;
+    border: 1px solid #FF5443;
+    text-transform: uppercase;
+    color: #FF5443;
+    font: 700 12px Arial,sans-serif;
+    cursor: pointer;
+    background: white;
+  }
+  .trb_cm_b:before {
+    content: attr(data-cm-label);
+    display: block;
+    padding-top: 14px;
+  }
+  .trb_cm_b.opened:before{content:'Hide comments'}.trb_cm_so{padding-top:10px;}
+</style>
+
+  <div class=" trb_cm" data-role="cm_expandable">
+    <div class="trb_cm_b" data-role="cm_expander" data-cm-label="View Comments" data-cm-t="so"></div>
+    
+    <div class="trb_cm_so" data-role="cm_container"></div>
+  </div>
+
+
+
+	<h2>community widget</h2>
+	<div class="so_community"  ></div> 
+
+
+	<h2>counter widget</h2>
+	<span class="so_rating" ></span> 
+    </body>
+</html>
